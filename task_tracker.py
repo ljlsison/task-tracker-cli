@@ -146,7 +146,7 @@ def show_usage():
         ADD: ("<task>", "Add a new task"),
         DELETE: ("<task_id>", "Delete a task by ID"),
         UPDATE: ("<task_id> <new task>", "Update a task by ID"),
-        MARK: ("<task_id> [done|completed]", "Mark a task as done or completed"),
+        MARK: ("<task_id> <done|completed|todo>", "Mark a task as done or completed"),
         LIST: ("[todo|done|completed]", "List all tasks"),
     }
 
