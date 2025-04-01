@@ -36,8 +36,8 @@ def test_save_tasks():
             "id": 1,
             "task": "Camping",
             "status": "todo",
-            "created_at": "2025-04-01 15:00:28.051650",
-            "updated_at": "2025-04-01 15:00:28.070330",
+            "created_at": "2025-04-01 15:00",
+            "updated_at": "2025-04-01 15:00",
         }
     ]
     save_tasks(sometasks, DATABASE_PATH)
