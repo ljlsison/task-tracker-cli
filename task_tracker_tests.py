@@ -1,7 +1,14 @@
 import json
 import os
 import pytest
-from task_tracker import load_tasks, save_tasks, add_task, delete_task, update_task
+from task_tracker import (
+    add_task,
+    delete_task,
+    load_tasks,
+    mark_task,
+    save_tasks,
+    update_task,
+)
 
 DATABASE_PATH = "test_tasks.json"
 
@@ -77,3 +84,17 @@ def test_update_task(capsys):
     assert no_task == "Task not found"
     assert updated == "Task with ID 1 successfully updated"
     assert tasks[0]["task"] == "Swimming"
+
+
+def test_mark_task(capsys):
+    mark_task(10, "done", DATABASE_PATH)
+    no_task = capsys.readouterr().out.strip()
+
+    mark_task(1, "done", DATABASE_PATH)
+    updated = capsys.readouterr().out.strip()
+
+    tasks = load_tasks(DATABASE_PATH)
+
+    assert no_task == "Task not found"
+    assert updated == "Task with ID 1 successfully updated"
+    assert tasks[0]["status"] == "done"
