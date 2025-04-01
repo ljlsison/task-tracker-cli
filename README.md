@@ -61,7 +61,12 @@ This is a project for the [task-tracker](https://roadmap.sh/projects/task-tracke
 - **mark** Updates the status of a task
 
   ```bash
-  python task_tracker.py mark <task_id> <done|completed>
+  python task_tracker.py mark <task_id> <done|completed|todo>
   ```
 
 ### List:
+- **list** Lists all the existing tasks, or add the optional arguments to only get the selected status
+  
+   ```bash
+   python task_tracker.py list [done|completed|todo]
+   ```
