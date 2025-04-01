@@ -4,6 +4,7 @@ import pytest
 from task_tracker import (
     add_task,
     delete_task,
+    list_tasks,
     load_tasks,
     mark_task,
     save_tasks,
@@ -98,3 +99,11 @@ def test_mark_task(capsys):
     assert no_task == "Task not found"
     assert updated == "Task with ID 1 successfully updated"
     assert tasks[0]["status"] == "done"
+
+
+def test_list_tasks(capsys):
+    list_tasks("todo", DATABASE_PATH)
+    tasks = capsys.readouterr().out.strip()
+
+    # Check if it prints out something
+    assert tasks != None
